@@ -1,10 +1,12 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Pet Adoption Center</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -12,7 +14,7 @@
 
     <div class="container">
 
-        <h1>🐾 Welcome to the Pet Adoption Center</h1>
+        <h1 class="font-bold text-3xl " >🐾 Welcome to the Pet Adoption Center</h1>
 
         <a href="/cart" class="view-cart-link">View Cart 🛒</a>
 
@@ -44,4 +46,3 @@
 
 </body>
 </html>
-```
