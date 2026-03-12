@@ -1,0 +1,47 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Adoption Center</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <img src="{{ url_for('static', filename='d2.jpeg') }}" alt="Pet Image" class="pet-image">
+
+    <div class="container">
+
+        <h1>🐾 Welcome to the Pet Adoption Center</h1>
+
+        <a href="/cart" class="view-cart-link">View Cart 🛒</a>
+
+        <div class="pet-grid">
+
+            {% for pet in pets %}
+            <div class="pet-card">
+
+                <h2>{{ pet['name'] }}</h2>
+
+                <p><strong>Type:</strong> {{ pet['type'] }}</p>
+                <p><strong>Breed:</strong> {{ pet['breed'] }}</p>
+                <p><strong>Gender:</strong> {{ pet['gender'] }}</p>
+                <p><strong>Age:</strong> {{ pet['age'] }}</p>
+                <p><strong>Health Status:</strong> {{ pet['health_status'] }}</p>
+
+                <p><strong>Status:</strong> Available for Adoption 🐾</p>
+
+                <form action="/add_to_cart/{{ pet['id'] }}" method="post">
+                    <button type="submit">Adopt ❤️</button>
+                </form>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+```

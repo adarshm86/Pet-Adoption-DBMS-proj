@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Adoption Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🐾 Your Adoption Cart</h1>
+
+        <img src="{{ url_for('static', filename='d1.jpeg') }}" alt="Pet Image" class="pet-image">
+
+        {% if cart %}
+            <ul>
+                {% for pet in cart %}
+                    <li>
+                        <strong>{{ pet['name'] }}</strong> ({{ pet['breed'] }})
+                        
+                        <form action="/remove_from_cart/{{ loop.index0 }}" method="post" style="display:inline;">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <p><strong>Total Pets Selected:</strong> {{ total_pets }}</p>
+
+        {% else %}
+            <p>Your adoption cart is empty.</p>
+        {% endif %}
+
+        {% if cart %}
+        <form action="{{ url_for('checkout') }}" method="post">
+            <button type="submit">Proceed to Adopt ❤️</button>
+        </form>
+        {% endif %}
+
+        <a href="/">← Back to Home</a>
+
+    </div>
+</body>
+</html>

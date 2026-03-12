@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adopter Information</title>
+
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+<body>
+    <h2>Enter Your Details to Adopt</h2>
+    <form method="post" action="{{ url_for('confirm_adoption') }}">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="text" name="phone" placeholder="Phone" required><br>
+        <input type="text" name="address" placeholder="Address" required><br>
+        <button type="submit">Confirm Adoption</button>
+    </form>
+
+
+</body>
+</html>
